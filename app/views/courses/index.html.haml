@@ -1,8 +1,11 @@
-%h1 Listing courses
+%h1
+  Courses
+  = @courses.count
 
 %table.table
   %thead
     %tr
+      %th id
       %th Title
       %th Description
       %th
@@ -12,6 +15,7 @@
   %tbody
     - @courses.each do |course|
       %tr
+        %td= course.id
         %td= course.title
         %td
           = course.description
