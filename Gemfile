@@ -34,6 +34,10 @@ gem "font-awesome-sass", "~> 6.3.0"
 # check codestyle
 gem 'rubocop', require: false
 
+# to convert erb to haml
+gem "haml-rails", "~> 2.0"
+gem 'html2haml'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
