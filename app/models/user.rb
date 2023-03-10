@@ -4,7 +4,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :omniauthable
   devise :database_authenticatable, :registerable,  :trackable,
          :recoverable, :rememberable, :validatable, :confirmable
-
+  validate :must_have_a_role, on: :update
+  
   rolify
   
   def to_s
@@ -32,5 +33,12 @@ class User < ApplicationRecord
 
   def username
     self.email.split(/@/).first
+  end
+
+  private
+  def must_have_a_role
+    unless roles.any?
+      errors.add(:roles, "must have at least one role")
+    end
   end
 end
