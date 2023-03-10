@@ -253,6 +253,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
+    rolify (6.0.1)
     rubocop (1.48.0)
       json (~> 2.3)
       parallel (~> 1.10)
@@ -369,6 +370,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.2)
   ransack
+  rolify
   rubocop
   sass-rails (>= 6)
   selenium-webdriver
