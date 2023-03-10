@@ -12,6 +12,13 @@ class User < ApplicationRecord
     email
   end
 
+  extend FriendlyId
+  friendly_id :email, use: :slugged
+
+  def should_generate_new_friendly_id?
+    email_changed?
+  end
+
   after_create :assign_default_role
   def assign_default_role
     if User.count == 1
