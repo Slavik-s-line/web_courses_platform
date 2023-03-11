@@ -6,7 +6,7 @@
   .form-inputs
     = f.input :title
     = f.input :content
-    = f.association :course
+    = f.association :course, selected: params[:course_id] || @lesson.course_id
 
   .form-actions
     = f.button :submit
