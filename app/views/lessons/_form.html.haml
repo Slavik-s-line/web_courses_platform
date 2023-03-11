@@ -7,7 +7,8 @@
     = f.input :title
     = f.label :content
     = f.rich_text_area :content
-    = f.association :course, selected: @lesson.course_id || params[:course_id]
+    %small= f.error :content, class: 'text-danger'
+    /= f.association :course, selected: @lesson.course_id || params[:course_id]
 
   .form-actions
     = f.button :submit
