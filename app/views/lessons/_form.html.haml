@@ -1,5 +1,5 @@
 -# frozen_string_literal: true
-= simple_form_for(@lesson) do |f|
+= simple_form_for([@course, @lesson]) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
@@ -7,7 +7,7 @@
     = f.input :title
     = f.label :content
     = f.rich_text_area :content
-    = f.association :course, selected: params[:course_id] || @lesson.course_id
+    = f.association :course, selected: @lesson.course_id || params[:course_id]
 
   .form-actions
     = f.button :submit
