@@ -5,7 +5,8 @@
 
   .form-inputs
     = f.input :title
-    = f.input :content
+    = f.label :content
+    = f.rich_text_area :content
     = f.association :course, selected: params[:course_id] || @lesson.course_id
 
   .form-actions
