@@ -29,6 +29,15 @@ class Enrollment < ApplicationRecord
     ["course", "user"]
   end
 
+  after_save do
+    unless rating.nil? || rating.zero?
+      course.update_rating
+    end
+  end
+
+  after_destroy do
+    course.update_rating
+  end
 
   protected
   def cant_subscribe_to_own_course
