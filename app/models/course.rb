@@ -4,7 +4,7 @@ class Course < ApplicationRecord
   validates :description, presence: true, length: { :minimum => 5 }
   belongs_to :user, optional: true, counter_cache: true
   has_many :lessons, dependent: :destroy
-  has_many :enrollments
+  has_many :enrollments, dependent: :restrict_with_error
   has_many :user_lessons, through: :lessons
 
   validates :title, uniqueness: true
