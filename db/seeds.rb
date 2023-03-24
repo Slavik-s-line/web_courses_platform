@@ -7,14 +7,14 @@ end
 
 if User.find_by_email('studentteacher@example.com').nil?
   studentteacher = User.create!(email: 'studentteacher@example.com', password: 'studentteacher@example.com', password_confirmation: 'studentteacher@example.com', confirmed_at: Time.now)
-  #studentteacher.skip_confirmation!
+  studentteacher.skip_confirmation!
   studentteacher.add_role(:teacher) unless studentteacher.has_role?(:teacher)
   studentteacher.add_role(:student) unless studentteacher.has_role?(:student)
 end
 
 if User.find_by_email('student@example.com').nil?
   student = User.create!(email: 'student@example.com', password: 'student@example.com', password_confirmation: 'student@example.com', confirmed_at: Time.now)
-  #student.skip_confirmation!
+  student.skip_confirmation!
   student.add_role(:student) unless student.has_role?(:student)
 end
 
