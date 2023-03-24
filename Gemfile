@@ -28,7 +28,7 @@ gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-# add icons
+# add icons for styling
 gem "font-awesome-sass", "~> 6.3.0"
 
 # check codestyle
@@ -42,6 +42,7 @@ gem 'html2haml'
 gem 'simple_form'
 
 gem 'bootstrap', '~> 4.4.1'
+# for bootstrap to work
 gem 'jquery-rails'
 
 # gem for fake data
@@ -52,21 +53,21 @@ gem 'devise'
 gem 'friendly_id', '~> 5.4.0'
 
 gem "figaro"
-
+# filter and sort data
 gem 'ransack'
-
+# see all activity in the app
 gem 'public_activity'
-
+# give users roles
 gem "rolify"
-
+# authorization
 gem "pundit"
-
+# notify if errors in production
 gem 'exception_notification', group: :production
-
+# pagination
 gem 'pagy'
-
+# charts
 gem "chartkick"
-
+# group records by day/week/year
 gem 'groupdate'
 
 group :development, :test do
