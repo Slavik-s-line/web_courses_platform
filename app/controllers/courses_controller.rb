@@ -16,8 +16,8 @@ class CoursesController < ApplicationController
     @pagy, @courses = pagy(@ransack_courses.result.includes(:user))
   end
 
-  def purchased
-    @ransack_path = purchased_courses_path
+  def learning
+    @ransack_path = learning_courses_path
     @ransack_courses = Course.joins(:enrollments).where(enrollments: {user: current_user}).ransack(params[:courses_search], search_key: :courses_search)
     @pagy, @courses = pagy(@ransack_courses.result.includes(:user))
     render 'index'
@@ -30,8 +30,8 @@ class CoursesController < ApplicationController
     render 'index'
   end
 
-  def created
-    @ransack_path = created_courses_path
+  def teaching
+    @ransack_path = teaching_courses_path
     @ransack_courses = Course.where(user: current_user).ransack(params[:courses_search], search_key: :courses_search)
     @pagy, @courses = pagy(@ransack_courses.result.includes(:user))
     render 'index'
