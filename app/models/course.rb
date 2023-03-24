@@ -38,7 +38,7 @@ class Course < ApplicationRecord
   end
 
   def self.levels
-    ["Beginner", "Intermediate", "Advanced"]
+    ["All levels", "Beginner", "Intermediate", "Advanced"]
   end
 
   def self.ransackable_attributes(auth_object = nil)
