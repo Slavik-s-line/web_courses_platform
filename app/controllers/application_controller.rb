@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  after_action :user_activity
+  after_action :user_activity, if: :user_signed_in?
   before_action :authenticate_user!
   before_action :set_global_variables, if: :user_signed_in?
 

@@ -1,18 +1,18 @@
 - content_for :title do
   Corsego 
-  \/
+  |
   Course
   = @course.title
-  \/
+  |
   Lesson
   = @lesson.title
 
 
 = link_to 'Courses', courses_path
-\/
+|
 = link_to course_path(@lesson.course) do
   = @lesson.course.title
-\/
+|
 = link_to course_lesson_path(@course, @lesson) do
   = @lesson.title
 %p
