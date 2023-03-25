@@ -1,7 +1,7 @@
 
 if User.find_by_email('admin@example.com').nil?
-  admin = User.create!(email: 'admin@example.com', password: 'admin@example.com', password_confirmation: 'admin@example.com', confirmed_at: Time.now)
-  #admin.skip_confirmation!
+  admin = User.create!(email: 'admin@example.com', password: '111111', password_confirmation: '111111', confirmed_at: Time.now)
+  admin.skip_confirmation!
   admin.add_role(:admin) unless admin.has_role?(:admin)
 end
 
@@ -20,20 +20,20 @@ end
 
 PublicActivity.enabled = false
 
-5.times do
-  Course.create!([{
-    title: Faker::Educator.course_name,
-    short_description: Faker::Quote.famous_last_words,
-    description: Faker::TvShows::GameOfThrones.quote,
-    user: User.find_by(email: "admin@example.com"),
-    language: Faker::ProgrammingLanguage.name,
-    level: 'Beginner',
-    #price: Faker::Number.between(from: 1000, to: 20000),
-    price: 0,
-    approved: true,
-    published: true
-  }])
-end
+# 5.times do
+#   Course.create!([{
+#     title: Faker::Educator.course_name,
+#     short_description: Faker::Quote.famous_last_words,
+#     description: Faker::TvShows::GameOfThrones.quote,
+#     user: User.find_by(email: "admin@example.com"),
+#     language: Faker::ProgrammingLanguage.name,
+#     level: 'Beginner',
+#     #price: Faker::Number.between(from: 1000, to: 20000),
+#     price: 0,
+#     approved: true,
+#     published: true
+#   }])
+# end
 
 5.times do
   Course.create!([{
@@ -60,7 +60,7 @@ Course.all.each do |course|
   end
 
   Enrollment.create!([{
-    user: User.find_by(email: "studentteacher@example.com"),
+    user: User.find_by(email: "admin@example.com"),
     course: course
   }])
 
