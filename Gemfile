@@ -47,7 +47,7 @@ gem 'jquery-rails'
 
 # gem for fake data
 gem 'faker'
-
+#authentication as a User
 gem 'devise'
 
 gem 'friendly_id', '~> 5.4.0'
@@ -57,9 +57,9 @@ gem "figaro"
 gem 'ransack'
 # see all activity in the app
 gem 'public_activity'
-# give users roles
+# give users roles (admin, teacher, student)
 gem "rolify"
-# authorization
+# authorization (different roles have different accesses)
 gem "pundit"
 # notify if errors in production
 gem 'exception_notification', group: :production

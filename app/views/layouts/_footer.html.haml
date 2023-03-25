@@ -3,20 +3,28 @@
   .container
     .row
       .col-md-4
-        Copyright
-        © 
-        = Time.now.year
-        CoursePlatform Sp. z o.o.
+        = link_to 'Teach on Corsego', new_course_path
         .row
-        .fa.fa-envelope
-        = mail_to 'yashm@outlook.com'
+        Corsego for business
         .row
+        About us
       .col-md-4
         Privacy policy
         .row
         Terms and conditions
-      .col-md-4
-        About us
         .row
-        = link_to 'Teach on CoursePlatform', new_course_path
+        Careers
+        .row
+        Help and Support
+        .row
+        Blog
+      .col-md-4
+        Copyright
+        © 
+        = Time.now.year
+        Corsego Sp. z o.o.
+        .row
+        .fa.fa-envelope
+        = mail_to 'yashm@outlook.com'
+        .row
 %br
