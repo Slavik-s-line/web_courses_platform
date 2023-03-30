@@ -16,6 +16,11 @@ class Lesson < ApplicationRecord
 
   has_rich_text :content
 
+  #validates :video_thumbnail, presence: true, if: :video_present?
+  #def video_present?
+  #  self.video.present?
+  #end
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 
