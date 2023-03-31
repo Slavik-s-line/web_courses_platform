@@ -1,6 +1,7 @@
 class Lesson < ApplicationRecord
   belongs_to :course, counter_cache: true
   has_many :user_lessons, dependent: :destroy
+  has_many :comments, dependent: :nullify
   validates :title, :content, :course, presence: true
   validates :title, length: { maximum: 70 }
   validates_uniqueness_of :title, scope: :course_id
