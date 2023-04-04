@@ -131,6 +131,6 @@ class CoursesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def course_params
       params.require(:course).permit(:title, :description, :short_description, :price,
-        :published, :language, :level, :avatar)
+        :published, :language, :level, :avatar, tag_ids: [])
     end
 end
