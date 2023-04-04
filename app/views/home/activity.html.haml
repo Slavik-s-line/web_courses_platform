@@ -21,7 +21,7 @@
         - if Lesson.where(id: activity.trackable_id).any?
           = link_to activity.trackable, course_lesson_path(activity.trackable.course, activity.trackable)
         - else
-          Lesson was deleted
+          was deleted
       - elsif activity.trackable_type == "Comment"
         - if Comment.where(id: activity.trackable_id).any?
           = link_to activity.trackable.content, course_lesson_path(activity.trackable.lesson.course, activity.trackable.lesson)

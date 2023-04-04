@@ -55,7 +55,7 @@ class Course < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    ["rich_text_description", "user"]
+    ["activities", "avatar_attachment", "avatar_blob", "course_tags", "enrollments", "lessons", "rich_text_description", "tags", "user", "user_lessons"]
   end
 
   def bought(user)
