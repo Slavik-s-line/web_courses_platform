@@ -4,8 +4,5 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "utf-8"}/
     = wicked_pdf_stylesheet_link_tag "pdf"
-  %body{:onload => "number_pages"}
-    #header
-      /= wicked_pdf_image_tag 'logo.png'
-    #content
-      = yield
+  %body{:style => "background-color:#d1edee; padding: 3em;"}
+    = yield
