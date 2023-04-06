@@ -13,8 +13,8 @@ class EnrollmentsController < ApplicationController
 
   def my
     @ransack_path = my_enrollments_path
-    @q = Enrollment.joins(:course).where(courses: {user: current_user}).ransack(params[:q])
-    @pagy, @enrollments = pagy(@q.result.includes(:user))
+    @q = Enrollment.where(user: current_user).ransack(params[:q])
+    @pagy, @enrollments = pagy(@q.result)
     render 'index'
   end
 
