@@ -14,7 +14,6 @@
       %h3
         .fa.fa-graduation-cap
         = @course.title
-        = link_to 'course creator', course_course_wizard_index_path(@course)
         /.row
         /- if @course.avatar.attached?
         /  = image_tag @course.avatar, width: "200px"
