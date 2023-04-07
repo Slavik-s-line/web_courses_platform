@@ -15,6 +15,10 @@ class User < ApplicationRecord
     email
   end
 
+  after_create do
+    UserMailer.new_user(self).deliver_later
+  end
+
   extend FriendlyId
   friendly_id :email, use: :slugged
 
