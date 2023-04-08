@@ -35,20 +35,20 @@ PublicActivity.enabled = false
 #   }])
 # end
 
-# 5.times do
-#   Course.create!([{
-#     title: Faker::Educator.course_name,
-#     short_description: Faker::Quote.famous_last_words,
-#     description: Faker::TvShows::GameOfThrones.quote,
-#     user: User.find_by(email: "studentteacher@example.com"),
-#     language: Faker::ProgrammingLanguage.name,
-#     level: 'Beginner',
-#     #price: Faker::Number.between(from: 1000, to: 20000),
-#     price: 0,
-#     approved: true,
-#     published: true
-#   }])
-# end
+5.times do
+  Course.create!([{
+    title: Faker::Educator.course_name,
+    short_description: Faker::Quote.famous_last_words,
+    description: Faker::TvShows::GameOfThrones.quote,
+    user: User.find_by(email: "studentteacher@example.com"),
+    language: Faker::ProgrammingLanguage.name,
+    level: 'Beginner',
+    #price: Faker::Number.between(from: 1000, to: 20000),
+    price: 99,
+    approved: true,
+    published: true
+  }])
+end
 
 Course.last(5).each do |course|
   10.times do

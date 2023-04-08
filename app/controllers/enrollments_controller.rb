@@ -49,15 +49,10 @@ class EnrollmentsController < ApplicationController
 
   # POST /enrollments or /enrollments.json
   def create
-    if @course.price > 0
-      flash[:alert] = "You can not access paid courses yet."
-      redirect_to new_course_enrollment_path(@course)
-    else
-      @enrollment = current_user.buy_course(@course)
-      redirect_to course_path(@course), notice: "You are enrolled!"
-      EnrollmentMailer.student_enrollment(@enrollment).deliver_later
-      EnrollmentMailer.teacher_enrollment(@enrollment).deliver_later
-    end
+    @enrollment = current_user.buy_course(@course)
+    redirect_to course_path(@course), notice: "You are enrolled!"
+    EnrollmentMailer.student_enrollment(@enrollment).deliver_later
+    EnrollmentMailer.teacher_enrollment(@enrollment).deliver_later
   end
 
   # PATCH/PUT /enrollments/1 or /enrollments/1.json
