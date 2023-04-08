@@ -108,6 +108,7 @@ GEM
       xpath (~> 3.2)
     chartkick (5.0.1)
     choice (0.2.0)
+    cocoon (1.2.15)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -408,6 +409,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   chartkick
+  cocoon
   devise
   exception_notification
   faker

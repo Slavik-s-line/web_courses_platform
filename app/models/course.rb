@@ -4,11 +4,13 @@ class Course < ApplicationRecord
   validates :description, length: { minimum: 5 }
   validates :short_description, length: { maximum: 300 }
   belongs_to :user, optional: true, counter_cache: true
-  has_many :lessons, dependent: :destroy
+  has_many :lessons, dependent: :destroy, inverse_of: :course
   has_many :enrollments, dependent: :restrict_with_error
   has_many :user_lessons, through: :lessons
   has_many :course_tags, inverse_of: :course, dependent: :destroy
   has_many :tags, through: :course_tags
+
+  accepts_nested_attributes_for :lessons, reject_if: :all_blank, allow_destroy: true
 
   validates :title, uniqueness: true, length: { maximum: 70 }
   validates :price, numericality: { greater_than_or_equal_to: 0 }
