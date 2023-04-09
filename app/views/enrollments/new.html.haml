@@ -13,6 +13,11 @@
       Buy course
   .card-body
     = form_tag course_enrollments_path(@course) do
-      = submit_tag "Pay #{@course.price}", class: 'btn btn-lg btn-success'
+      %script.stripe-button{"data-amount" => "#{(@course.price * 100).to_i}",
+                            "data-description" => "#{@course.title} (#{number_to_currency @course.price})",
+                            "data-email" => "#{current_user.email}",
+                            "data-key" => "pk_test_51MujOnAXntmLbwQfCBrqbuZKrPBSaA8sdudRapah1c2YZF5FR5qP8nfIKg6bmleAM6pMJabpcvrdvcCv9hLWWxZu00L47lZpr6",
+                            "data-locale" => "auto",
+                            :src => "https://checkout.stripe.com/checkout.js"}
   .card-footer
     = link_to 'Back', course_path(@course)
