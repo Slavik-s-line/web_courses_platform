@@ -10,6 +10,9 @@ class User < ApplicationRecord
   validate :must_have_a_role, on: :update
   
   rolify
+
+  include PublicActivity::Model
+  tracked only: [:create, :destroy], owner: :itself
   
   def to_s
     email
