@@ -89,6 +89,8 @@ gem 'stripe'
 
 gem 'sitemap_generator'
 
+gem 'devise_invitable', '~> 2.0.0' # invite users
+
 gem "net-http"
 gem "net-smtp"
 gem "net-imap"
