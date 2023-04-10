@@ -1,5 +1,17 @@
+require 'aws-sdk-s3'
 # Set the host name for URL creation
+SitemapGenerator::Sitemap.compress = false
 SitemapGenerator::Sitemap.default_host = "http://www.example.com"
+
+# The remote host where your sitemaps will be hosted
+SitemapGenerator::Sitemap.sitemaps_host = "https://some-storage.s3.eu-central-1.amazonaws.com/"
+
+SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
+  "some-storage",
+  aws_access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
+  aws_secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
+  aws_region: "eu-central-1"
+)
 SitemapGenerator::Sitemap.compress = false
 
 SitemapGenerator::Sitemap.create do

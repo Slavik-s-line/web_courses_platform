@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'analytics', to: 'home#analytics'
   get 'privacy_policy', to: 'home#privacy_policy'
 
+  get '/sitemap.xml', to: redirect("https://some-storage.s3.eu-central-1.amazonaws.com/sitemap.xml")
+
   resources :enrollments do
     get :my, on: :collection
     member do
