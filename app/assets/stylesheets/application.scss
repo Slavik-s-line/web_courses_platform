@@ -57,3 +57,19 @@ z-index: 3;
 trix-editor.form-control {
   height: auto;
 }
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+	margin: 0 0 200px;
+}
+.footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	//height: 200px;
+	width: 100%;
+	overflow: hidden;
+} 
