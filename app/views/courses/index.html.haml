@@ -21,7 +21,7 @@
       = f.label :tag
       = f.search_field :course_tags_tag_name_cont, placeholder: 'Tag name', class: 'form-control form-control-sm'
       = f.label :description
-      = f.search_field :short_description_cont, placeholder: 'Description', class: 'form-control form-control-sm'
+      = f.search_field :marketing_description, placeholder: 'Description', class: 'form-control form-control-sm'
       = f.label :language
       = f.select :language_cont, Course.languages, include_blank: true
       = f.label :level

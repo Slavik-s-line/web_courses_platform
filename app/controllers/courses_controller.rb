@@ -80,7 +80,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     authorize @course
     @course.description = 'Default Description'
-    @course.short_description = 'Default Short Description'
+    @course.marketing_description = 'Default Short Description'
     @course.user = current_user
 
     respond_to do |format|

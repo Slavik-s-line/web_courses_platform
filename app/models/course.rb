@@ -1,8 +1,8 @@
 class Course < ApplicationRecord
   include ActionText::Attachable
-  validates :title, :description, :short_description, :language, :price, :level,  presence: true
+  validates :title, :description, :marketing_description, :language, :price, :level,  presence: true
   validates :description, length: { minimum: 5 }
-  validates :short_description, length: { maximum: 300 }
+  validates :marketing_description, length: { maximum: 300 }
   belongs_to :user, optional: true, counter_cache: true
   has_many :lessons, dependent: :destroy, inverse_of: :course
   has_many :enrollments, dependent: :restrict_with_error
@@ -13,7 +13,7 @@ class Course < ApplicationRecord
   accepts_nested_attributes_for :lessons, reject_if: :all_blank, allow_destroy: true
 
   validates :title, uniqueness: true, length: { maximum: 70 }
-  validates :price, numericality: { greater_than_or_equal_to: 0 }
+  validates :price, numericality: { greater_than_or_equal_to: 0, less_than: 500000 }
 
   scope :latest, -> { limit(3).order(created_at: :desc) }
   scope :top_rated, -> { limit(3).order(average_rating: :desc, created_at: :desc) }
@@ -54,7 +54,7 @@ class Course < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "description", "id", "language", "level", "price", "short_description", "slug", "title", "updated_at", "user_id", "average_rating", "enrollments_count"]
+    ["created_at", "description", "id", "language", "level", "price", "marketing_description", "slug", "title", "updated_at", "user_id", "average_rating", "enrollments_count"]
   end
 
   def self.ransackable_associations(auth_object = nil)
