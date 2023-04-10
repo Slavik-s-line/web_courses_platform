@@ -87,6 +87,8 @@ gem "cocoon"
 
 gem 'stripe'
 
+gem 'sitemap_generator'
+
 gem "net-http"
 gem "net-smtp"
 gem "net-imap"

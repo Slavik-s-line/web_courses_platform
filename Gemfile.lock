@@ -343,6 +343,8 @@ GEM
     simple_form (5.2.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    sitemap_generator (6.3.0)
+      builder (~> 3.0)
     spring (4.1.1)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
@@ -447,6 +449,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   simple_form
+  sitemap_generator
   spring
   stripe
   turbolinks (~> 5)
